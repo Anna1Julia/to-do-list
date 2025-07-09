@@ -1,8 +1,4 @@
-
 import './App.css'
-import FirstForm from './componentes/FirstForm'
-import FormState from './componentes/FormState'
-import FormSelect from './componentes/FormSelect'
 import Listar from './componentes/Listar'
 
 function App() {

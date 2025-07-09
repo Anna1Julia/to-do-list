@@ -1,0 +1,154 @@
+.botao-tema {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--cor-primaria);
+    transition: transform 0.2s ease;
+    z-index: 10;
+    outline: none;
+}
+
+.botao-tema:hover {
+    transform: scale(1.2);
+    color: var(--cor-secundaria);
+}
+
+.botao-tema:focus-visible {
+    outline: 2px solid var(--cor-secundaria);
+    outline-offset: 2px;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: var(--texto-claro);
+}
+
+/* CONTAINER */
+body.dark-mode .todo-container {
+    background-color: var(--cinza-escuro);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+/* TÍTULO */
+body.dark-mode h2 {
+    color: var(--cor-primaria);
+}
+
+/* FORMULÁRIO */
+body.dark-mode .todo-form input[type="text"],
+body.dark-mode .todo-form input[type="date"] {
+    background-color: #2e2e3f;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-mode .todo-form input[type="text"]:focus,
+body.dark-mode .todo-form input[type="date"]:focus {
+    background-color: #3a3a4f;
+    color: #fff;
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+body.dark-mode .todo-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+    opacity: 1;
+    cursor: pointer;
+}
+
+body.dark-mode .todo-form input[type="submit"],
+body.dark-mode .todo-form .limpar {
+    background-color: var(--cor-primaria);
+}
+
+body.dark-mode .todo-form .botao:hover {
+    background: #6d32a5;
+    transform: scale(1.02);
+}
+
+/* FILTROS */
+body.dark-mode .filtros button {
+    background-color: #444;
+    color: #eee;
+}
+
+body.dark-mode .filtros button:hover {
+    background-color: var(--cor-primaria);
+    transform: scale(1.05);
+}
+
+body.dark-mode .filtros button.active {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+/* LISTA DE TAREFAS */
+body.dark-mode .lista-tarefas li {
+    background-color: #2c2c3e;
+    color: #ddd;
+}
+
+body.dark-mode .lista-tarefas li.concluida {
+    background-color: #393953;
+    color: #999;
+}
+
+body.dark-mode .lista-tarefas li.favorita {
+    border-left: 6px solid var(--favorito);
+}
+
+body.dark-mode .lista-tarefas li.urgente {
+    border-left: 6px solid var(--urgente);
+}
+
+body.dark-mode .lista-tarefas input[type="checkbox"] {
+    accent-color: var(--cor-primaria);
+}
+
+/* TAG DE DATA */
+body.dark-mode .data {
+    color: #aaa;
+}
+
+/* URGENTE */
+body.dark-mode .urgente-tag {
+    background-color: #ff3d3d;
+    color: #fff;
+}
+
+/* AÇÕES */
+body.dark-mode .acoes button {
+    color: #ccc;
+}
+
+body.dark-mode .acoes button:hover {
+    color: var(--cor-secundaria);
+}
+
+body.dark-mode .favorito {
+    color: var(--favorito);
+}
+
+body.dark-mode .excluir {
+    color: var(--urgente);
+}
+
+/* ORDEM */
+body.dark-mode .ordem button {
+    background-color: #444;
+    color: #ddd;
+}
+
+body.dark-mode .ordem button:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+body.dark-mode .ordem button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

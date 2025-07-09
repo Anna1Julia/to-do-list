@@ -39,6 +39,7 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 /* TÍTULO */
@@ -52,7 +53,7 @@ h2 {
 
 .todo-form {
     display: flex;
-    flex-wrap: nowrap; /* impede quebra de linha */
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -64,20 +65,27 @@ h2 {
 .todo-form input[type="date"] {
     padding: 12px 16px;
     border-radius: 10px;
-    border: 1px solid #555;
-    background-color: #1e1e2e;
-    color: #fff;
+    border: 1px solid var(--cinza-escuro);
+    background-color: var(--cor-clara);
+    color: var(--texto-escuro);
     font-size: 15px;
     width: 220px;
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 .todo-form input[type="text"]:focus,
 .todo-form input[type="date"]:focus {
     border-color: var(--cor-primaria);
     outline: none;
-    background-color: #fdfdfd;
-    color: var(--cinza-escuro);
+    background-color: var(--cinza-claro);
+    color: var(--texto-escuro);
+}
+
+.todo-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 1;
+    cursor: pointer;
 }
 
 /* BOTÕES */
@@ -262,72 +270,6 @@ h2 {
 .ordem button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-}
-
-/* DARK MODE */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: var(--texto-claro);
-    }
-
-    .todo-container {
-        background-color: var(--cinza-escuro);
-        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
-    }
-
-    .todo-form input[type="text"],
-    .todo-form input[type="date"] {
-        background-color: #2e2e3f;
-        color: #fff;
-        border-color: #444;
-    }
-
-    .todo-form input[type="submit"],
-    .todo-form .limpar {
-        background-color: var(--cor-primaria);
-    }
-
-    .filtros button {
-        background-color: #444;
-        color: #eee;
-    }
-
-    .lista-tarefas li {
-        background-color: #2c2c3e;
-        color: #ddd;
-    }
-
-    .lista-tarefas li.concluida {
-        background-color: #393953;
-        color: #999;
-    }
-
-    .data {
-        color: #aaa;
-    }
-
-    .acoes button {
-        color: #ccc;
-    }
-
-    .acoes button:hover {
-        color: var(--cor-secundaria);
-    }
-
-    .ordem button {
-        background-color: #444;
-        color: #ddd;
-    }
-
-    .ordem button:hover {
-        background-color: var(--cor-primaria);
-        color: white;
-    }
-
-    .urgente-tag {
-        background-color: #ff3d3d;
-    }
 }
 
 /* RESPONSIVO */
