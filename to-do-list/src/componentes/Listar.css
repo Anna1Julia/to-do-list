@@ -1,0 +1,364 @@
+:root {
+    --cor-primaria: #8e44ad;
+    --cor-secundaria: #ff9800;
+    --cor-clara: #ffffff;
+    --cor-escura: #1e1e2f;
+    --cinza-claro: #f0f0f5;
+    --cinza-escuro: #2a2a3c;
+    --texto-claro: #f8f8f8;
+    --texto-escuro: #1a1a1a;
+    --favorito: #ffc107;
+    --urgente: #e53935;
+    --sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* BASE */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--cinza-claro);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--texto-escuro);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* CONTAINER */
+.todo-container {
+    width: 95vw;
+    max-width: 1300px;
+    min-height: 90vh;
+    background: var(--cor-clara);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 2vh auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TÍTULO */
+h2 {
+    text-align: center;
+    color: var(--cor-primaria);
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.todo-form {
+    display: flex;
+    flex-wrap: nowrap; /* impede quebra de linha */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* INPUTS DE TEXTO E DATA */
+.todo-form input[type="text"],
+.todo-form input[type="date"] {
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    background-color: #1e1e2e;
+    color: #fff;
+    font-size: 15px;
+    width: 220px;
+    box-sizing: border-box;
+}
+
+.todo-form input[type="text"]:focus,
+.todo-form input[type="date"]:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+    background-color: #fdfdfd;
+    color: var(--cinza-escuro);
+}
+
+/* BOTÕES */
+.todo-form .botao {
+    width: 160px;
+    padding: 12px 10px;
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.todo-form .botao:hover {
+    background: #6d32a5;
+    transform: scale(1.02);
+}
+
+/* FILTROS */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filtros button {
+    background-color: var(--cor-escura);
+    color: var(--texto-claro);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    min-width: 100px;
+}
+
+.filtros button:hover {
+    background-color: var(--cor-primaria);
+    transform: scale(1.05);
+}
+
+.filtros button.active {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+/* LISTA DE TAREFAS */
+.lista-tarefas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-tarefas li {
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #fafafa;
+    border-left: 6px solid var(--cor-secundaria);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px var(--sombra);
+    transition: all 0.2s ease-in-out;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lista-tarefas li.concluida {
+    text-decoration: line-through;
+    color: #999;
+    background-color: #eeeeee;
+}
+
+.lista-tarefas li.favorita {
+    border-left: 6px solid var(--favorito);
+}
+
+.lista-tarefas li.urgente {
+    border-left: 6px solid var(--urgente);
+}
+
+.lista-tarefas li > div:first-child {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 1;
+}
+
+.lista-tarefas input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: var(--cor-primaria);
+    cursor: pointer;
+}
+
+.data {
+    font-size: 13px;
+    color: #777;
+    margin-left: 4px;
+}
+
+.urgente-tag {
+    background-color: var(--urgente);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* AÇÕES */
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.acoes button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-primaria);
+    font-size: 18px;
+    transition: transform 0.2s;
+}
+
+.acoes button:hover {
+    color: var(--cor-secundaria);
+    transform: scale(1.25);
+}
+
+.favorito {
+    color: var(--favorito);
+}
+
+.excluir {
+    color: var(--urgente);
+}
+
+/* ORDEM */
+.ordem {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.ordem button {
+    padding: 4px 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.ordem button:hover:not(:disabled) {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.ordem button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: var(--texto-claro);
+    }
+
+    .todo-container {
+        background-color: var(--cinza-escuro);
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .todo-form input[type="text"],
+    .todo-form input[type="date"] {
+        background-color: #2e2e3f;
+        color: #fff;
+        border-color: #444;
+    }
+
+    .todo-form input[type="submit"],
+    .todo-form .limpar {
+        background-color: var(--cor-primaria);
+    }
+
+    .filtros button {
+        background-color: #444;
+        color: #eee;
+    }
+
+    .lista-tarefas li {
+        background-color: #2c2c3e;
+        color: #ddd;
+    }
+
+    .lista-tarefas li.concluida {
+        background-color: #393953;
+        color: #999;
+    }
+
+    .data {
+        color: #aaa;
+    }
+
+    .acoes button {
+        color: #ccc;
+    }
+
+    .acoes button:hover {
+        color: var(--cor-secundaria);
+    }
+
+    .ordem button {
+        background-color: #444;
+        color: #ddd;
+    }
+
+    .ordem button:hover {
+        background-color: var(--cor-primaria);
+        color: white;
+    }
+
+    .urgente-tag {
+        background-color: #ff3d3d;
+    }
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+    .todo-form {
+        flex-direction: column;
+    }
+
+    .todo-form input[type="submit"],
+    .todo-form .limpar {
+        width: 100%;
+    }
+
+    .filtros {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .filtros button {
+        width: 100%;
+    }
+
+    .acoes,
+    .ordem {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .lista-tarefas li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
